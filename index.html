@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dra. Júnia Silveira | Advocacia e Consultoria</title>
+<meta name="description" content="Dra. Júnia Silveira — Especialista em Direito do Consumidor, Bancário e Digital. Advocacia de excelência em Sete Lagoas - MG. Atendimento humanizado e sigilo garantido."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-tertiary-fixed": "#1c1b20",
+          "outline": "#9c8d8d",
+          "inverse-on-surface": "#313034",
+          "secondary-fixed-dim": "#c6c6c7",
+          "on-primary": "#422a2a",
+          "tertiary-container": "#a5a2a9",
+          "tertiary-fixed-dim": "#c9c5cc",
+          "surface-container-highest": "#363439",
+          "on-tertiary": "#313035",
+          "on-secondary-fixed-variant": "#454747",
+          "outline-variant": "#4f4444",
+          "surface-container-high": "#2b292e",
+          "inverse-surface": "#e6e1e7",
+          "on-secondary-container": "#b4b5b5",
+          "surface-container": "#201f23",
+          "secondary": "#c6c6c7",
+          "background": "#141317",
+          "on-background": "#e6e1e7",
+          "tertiary-fixed": "#e5e1e8",
+          "on-primary-fixed": "#2b1616",
+          "on-error": "#690005",
+          "inverse-primary": "#745757",
+          "error": "#ffb4ab",
+          "on-surface-variant": "#d3c3c2",
+          "on-secondary": "#2f3131",
+          "surface-container-low": "#1c1b1f",
+          "surface-dim": "#141317",
+          "surface-variant": "#363439",
+          "surface-tint": "#e3bebd",
+          "primary-container": "#be9b9b",
+          "secondary-container": "#454747",
+          "on-secondary-fixed": "#1a1c1c",
+          "primary": "#e3bebd",
+          "secondary-fixed": "#e2e2e2",
+          "surface-bright": "#3a383d",
+          "on-primary-fixed-variant": "#5b4040",
+          "tertiary": "#c9c5cc",
+          "on-tertiary-container": "#3a393e",
+          "primary-fixed-dim": "#e3bebd",
+          "error-container": "#93000a",
+          "on-error-container": "#ffdad6",
+          "surface-container-lowest": "#0f0e12",
+          "primary-fixed": "#ffdad9",
+          "on-tertiary-fixed-variant": "#48464c",
+          "surface": "#141317",
+          "on-primary-container": "#4c3333",
+          "on-surface": "#e6e1e7"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "margin-mobile": "24px",
+          "margin-desktop": "80px",
+          "container-max": "1280px",
+          "gutter": "32px",
+          "section-gap": "160px"
+        },
+        fontFamily: {
+          "headline-lg": ["Playfair Display"],
+          "headline-display": ["Playfair Display"],
+          "headline-lg-mobile": ["Playfair Display"],
+          "headline-md": ["Playfair Display"],
+          "label-caps": ["Manrope"],
+          "body-lg": ["Manrope"],
+          "body-md": ["Manrope"]
+        },
+        fontSize: {
+          "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "600" }],
+          "headline-display": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+          "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+          "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "500" }],
+          "label-caps": ["12px", { lineHeight: "1.4", letterSpacing: "0.1em", fontWeight: "700" }],
+          "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+          "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  /* ── Animations ── */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+  .float-anim { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* ── Ticker / Marquee ── */
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 40s linear infinite;
+  }
+  .ticker-track:hover { animation-play-state: paused; }
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 32px;
+    white-space: nowrap;
+  }
+  .ticker-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #e3bebd;
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  /* ── Helpers ── */
+  .minimalist-border-l { border-left: 1px solid rgba(227,190,189,0.1); }
+  .minimalist-border-t { border-top: 1px solid rgba(227,190,189,0.1); }
+
+  /* ── WhatsApp floating button ── */
+  #whatsapp-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  #whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 32px rgba(37,211,102,0.65);
+  }
+  #whatsapp-btn svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* ── Instagram icon ── */
+  .instagram-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .instagram-icon:hover {
+    transform: scale(1.12);
+    box-shadow: 0 4px 18px rgba(220,39,67,0.45);
+  }
+  .instagram-icon svg { width: 20px; height: 20px; fill: #fff; }
+
+  /* ── Contact section ── */
+  .contact-input {
+    background: #201f23;
+    border: 1px solid rgba(227,190,189,0.2);
+    border-radius: 4px;
+    color: #e6e1e7;
+    padding: 14px 16px;
+    width: 100%;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .contact-input:focus { border-color: #e3bebd; }
+  .contact-input::placeholder { color: #9c8d8d; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+
+<!-- ════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════ -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl transition-all duration-300 ease-in-out border-b border-primary/10">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+    <a class="flex items-center gap-4" href="#">
+      <img alt="Dra. Júnia Silveira Logo"
+           class="h-10 md:h-12 w-auto object-contain"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCflXVZcHXUfEjVjnwqQP6qmPLbjrtSSyu2rrdTx0bIgislkj92Aq9kSA3lstBa2EbdT8afYHVBnswWqavea0aKkgKA8vAM7jukCB2OFrPjZxMO2HYivExM4MrIPcfv0Rlci_uXOKJ1XjZlwTREDqJqAtHxu-SDOtgPZXtWL67qgJFqHtFAj4g2aAGFtAT-lKhaHkUDoo7V2_5nuZqru0w7NthJHHEg_OSjOjJ19C3lw-E6WaFJd2gHZwzEpSZtMVjGCObeNeLdNpmi"/>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-primary/5 px-4 py-2 rounded-DEFAULT" href="#especialidades">Especialidades</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-primary/5 px-4 py-2 rounded-DEFAULT" href="#sobre">Sobre</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-primary/5 px-4 py-2 rounded-DEFAULT" href="#contato">Contato</a>
+    </div>
+    <a class="hidden md:inline-flex bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT hover:bg-primary-fixed transition-colors duration-300 items-center justify-center" href="#contato">
+      Consultar Agora
+    </a>
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-btn" class="md:hidden text-on-surface-variant hover:text-primary transition-colors" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-background/95 backdrop-blur-xl border-t border-primary/10 px-margin-mobile py-6 flex flex-col gap-4">
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps py-2" href="#especialidades" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Especialidades</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps py-2" href="#sobre" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Sobre</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps py-2" href="#contato" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contato</a>
+    <a class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-DEFAULT text-center mt-2" href="#contato" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Consultar Agora</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════ -->
+<section class="min-h-screen flex flex-col pt-28 pb-0 relative overflow-hidden"
+  style="background-image: linear-gradient(to right, rgba(20,19,23,0.97) 0%, rgba(20,19,23,0.75) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJnTP53ZVmWFtiCdVrb8ndXwuPjeXIF5BVyGGqP6QmE_ws4Drsuqt7jMEldWYFsEV-b48dXl213jMGnA5dEmHUvan6iWPF_uuC2GOQEjhjaigjUEI3BmBHnomyOYDvmCmK1DISnXzDftudVNulfJEFjn0uJixWWUJ6nqkbgelVfR1EirWQI5vOrGMVu-GWmVHnJDjuNh7a4_dOV5fxXTXy2ArRXPWd219ex2dCes4QuVLrjJoe68gEIbCwifHjCxO3awo-jC5t3WGF'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+  <!-- Ambient Glow -->
+  <div class="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <!-- Main hero content -->
+  <div class="flex-1 flex items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center w-full">
+
+      <!-- Image -->
+      <div class="lg:col-span-5 order-2 lg:order-1 fade-in-up">
+        <div class="relative w-full aspect-[3/4] md:aspect-[4/5] max-w-md mx-auto lg:mx-0 float-anim">
+          <div class="absolute inset-0 border border-primary/20 rounded-DEFAULT translate-x-4 translate-y-4"></div>
+          <img alt="Dra. Júnia Silveira Portrait"
+               class="w-full h-full object-cover rounded-DEFAULT shadow-2xl relative z-10 grayscale-[20%] contrast-125"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-aAMA9YxHThLff_9JyiZV7BOdNjHDkM7eCkUXBP6EQW3YRdwk7FBRjdwgVW8nPdz3ioasTpebRscjdYYe8aMjHBIXycZgWljYV2kmoKED4rb1YfTF6RSmb9a12L3X1-gq5-eNqAuHHqN7wphB0_Xea4o8ivE5tELi7OUg-ky-FpTy_FfCj9lMLh9t9QnEWhZj95GfmAKNXT4ifw4xHvQZmI5UshQSRykqMWdH0smefyR0oPzoh0AfSTCoAhNw7dXmYAcxpfDzmyfD"/>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-8 fade-in-up">
+        <h1 class="font-headline-display text-headline-lg-mobile md:text-headline-display text-on-surface tracking-tighter text-balance">
+          Advocacia de Excelência para o Mundo <span class="italic text-primary">Digital</span> e Bancário
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l border-primary/30 pl-6">
+          Especialista em Direito do Consumidor, Bancário e Digital. Estratégias jurídicas precisas para proteger seus ativos e direitos em um cenário complexo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+          <a class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT hover:bg-primary-fixed transition-colors duration-300 text-center" href="#contato">
+            Consultar Agora
+          </a>
+          <a class="border border-on-surface-variant text-on-surface font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT hover:bg-surface-container-highest transition-colors duration-300 text-center" href="#especialidades">
+            Conhecer Áreas
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOVING CAROUSEL / TICKER ── -->
+  <div class="w-full bg-surface-container-lowest/80 backdrop-blur-sm border-t border-primary/10 py-4 overflow-hidden mt-auto">
+    <div class="ticker-track" id="ticker-track" aria-hidden="true">
+      <!-- Items set A -->
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Sigilo e Confiança
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Direito Bancário
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Atendimento Humanizado
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Defesa do Consumidor
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Segurança Jurídica
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Direito Digital
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Suporte Atencioso
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Juros Abusivos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>LGPD &amp; Privacidade
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Revisão de Contratos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Crimes Cibernéticos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Proteção Patrimonial
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Ética e Comprometimento
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Financiamentos Abusivos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Contratos Digitais
+      </span>
+      <!-- Items set B (duplicate for seamless loop) -->
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Sigilo e Confiança
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Direito Bancário
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Atendimento Humanizado
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Defesa do Consumidor
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Segurança Jurídica
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Direito Digital
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Suporte Atencioso
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Juros Abusivos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>LGPD &amp; Privacidade
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Revisão de Contratos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Crimes Cibernéticos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Proteção Patrimonial
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Ética e Comprometimento
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-primary uppercase">
+        <span class="ticker-dot" style="background:#e3bebd;opacity:1"></span>Financiamentos Abusivos
+      </span>
+      <span class="ticker-item font-label-caps text-label-caps text-on-surface-variant uppercase">
+        <span class="ticker-dot"></span>Contratos Digitais
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SPECIALTIES SECTION
+════════════════════════════════════════════════ -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="especialidades">
+  <div class="max-w-container-max mx-auto">
+    <div class="mb-16 fade-in-up">
+      <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-4">Áreas de Atuação</span>
+      <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Especialidades Jurídicas</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-outline-variant/20 fade-in-up">
+      <!-- Card 1 -->
+      <div class="p-8 md:p-12 border-r border-b border-outline-variant/20 hover:bg-surface-container transition-colors duration-500 group">
+        <span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform duration-300" style="font-variation-settings:'FILL' 0;">gavel</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Direito do Consumidor</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Defesa contundente em relações de consumo, práticas abusivas e responsabilidade civil, garantindo o reequilíbrio contratual.
+        </p>
+      </div>
+      <!-- Card 2 -->
+      <div class="p-8 md:p-12 border-r border-b border-outline-variant/20 hover:bg-surface-container transition-colors duration-500 group">
+        <span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform duration-300" style="font-variation-settings:'FILL' 0;">account_balance</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Direito Bancário</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Análise de contratos bancários, juros abusivos, revisões de financiamento e defesa contra execuções financeiras indevidas.
+        </p>
+      </div>
+      <!-- Card 3 -->
+      <div class="p-8 md:p-12 border-r border-b border-outline-variant/20 hover:bg-surface-container transition-colors duration-500 group md:border-r-0">
+        <span class="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform duration-300" style="font-variation-settings:'FILL' 0;">security</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Direito Digital</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Proteção de dados (LGPD), crimes cibernéticos, contratos de tecnologia e propriedade intelectual no ambiente virtual.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     ABOUT SECTION
+════════════════════════════════════════════════ -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden" id="sobre">
+  <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#e3bebd 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+    <div class="fade-in-up">
+      <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Compromisso com a Verdade e Excelência</h2>
+      <div class="space-y-6 font-body-lg text-body-lg text-on-surface-variant">
+        <p>
+          A advocacia exige mais do que conhecimento técnico; exige uma compreensão profunda do cenário de negócios e das nuances que afetam o patrimônio e a reputação dos nossos clientes.
+        </p>
+        <p>
+          Dra. Júnia Silveira atua com precisão cirúrgica em casos de alta complexidade, oferecendo uma assessoria jurídica artesanal, pautada na discrição, ética e resultados concretos.
+        </p>
+      </div>
+      <div class="mt-12 flex items-center gap-6">
+        <div class="text-center pr-6 border-r border-outline-variant/20">
+          <span class="font-headline-md text-headline-md text-primary block">10+</span>
+          <span class="font-label-caps text-label-caps text-on-surface-variant">Anos de<br/>Experiência</span>
+        </div>
+        <div class="text-center">
+          <span class="font-headline-md text-headline-md text-primary block">100%</span>
+          <span class="font-label-caps text-label-caps text-on-surface-variant">Foco no<br/>Cliente</span>
+        </div>
+      </div>
+    </div>
+    <div class="relative h-[600px] w-full lg:ml-auto lg:w-4/5 rounded-DEFAULT overflow-hidden fade-in-up">
+      <div class="absolute inset-0 bg-surface-container-highest/50 backdrop-blur-sm z-10"></div>
+      <img class="w-full h-full object-cover mix-blend-overlay opacity-50"
+           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn9ImR0AJULSp48fSxDpHOnMRGGlm7nZeLBcXHqA-KW4zVTmVBcEvQZ3yEK6tA-oVaKqqsEjC0Xe4eqpmuNGwiDjVzGvpjw7rthN0pZQthMm8pIJrW_F3nwPdCT8lzUmWY6yEQV-atdcMhT_WAAXRcx89sExVF2ifBJyMbEvkErad2BNBTyC_6PinS8DSfJ-cPzhGdvvEVg8aEc0kbqIrN47-z2wY29Hm2jlH5LU8yObxH4Z1JWzdnw6voTWNMWCcV5BBR-bbuU9mW"
+           alt="Documentos jurídicos sobre mesa"/>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <img alt="Dra. Júnia Silveira Logo Monogram" class="w-32 h-32 opacity-20 object-contain"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCflXVZcHXUfEjVjnwqQP6qmPLbjrtSSyu2rrdTx0bIgislkj92Aq9kSA3lstBa2EbdT8afYHVBnswWqavea0aKkgKA8vAM7jukCB2OFrPjZxMO2HYivExM4MrIPcfv0Rlci_uXOKJ1XjZlwTREDqJqAtHxu-SDOtgPZXtWL67qgJFqHtFAj4g2aAGFtAT-lKhaHkUDoo7V2_5nuZqru0w7NthJHHEg_OSjOjJ19C3lw-E6WaFJd2gHZwzEpSZtMVjGCObeNeLdNpmi"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     CONTACT SECTION
+════════════════════════════════════════════════ -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest relative overflow-hidden" id="contato">
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+  <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+    <!-- Left: info + map -->
+    <div class="fade-in-up space-y-10">
+      <div>
+        <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-4">Fale Conosco</span>
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Entre em Contato</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Agende sua consulta e conte com orientação jurídica especializada. Atendimento presencial ou online, sempre com sigilo e atenção total ao seu caso.
+        </p>
+      </div>
+
+      <!-- Contact details -->
+      <div class="space-y-5">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5531997661109" target="_blank" rel="noopener"
+           class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full bg-[#25d366]/15 flex items-center justify-center group-hover:bg-[#25d366]/25 transition-colors">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-[#25d366]" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.527 5.847L0 24l6.332-1.501A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.81 9.81 0 0 1-5.012-1.377l-.36-.214-3.722.882.936-3.61-.234-.37A9.792 9.792 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">WhatsApp</p>
+            <p class="font-body-lg text-body-lg text-on-surface group-hover:text-primary transition-colors">+55 31 9976-6109</p>
+          </div>
+        </a>
+
+        <!-- Location -->
+        <a href="https://share.google/MnSL9nQtfV4wCFZaw" target="_blank" rel="noopener"
+           class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-2xl text-primary" style="font-variation-settings:'FILL' 0;">location_on</span>
+          </div>
+          <div>
+            <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Endereço</p>
+            <p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors leading-snug">
+              R. Prof. Abeylard, 279 — Sala 9<br/>
+              Centro, Sete Lagoas — MG, 35700-069
+            </p>
+          </div>
+        </a>
+
+        <!-- Google Business -->
+        <a href="https://share.google/MnSL9nQtfV4wCFZaw" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 mt-2 bg-surface-container border border-primary/20 hover:border-primary/50 text-on-surface hover:text-primary font-label-caps text-label-caps px-5 py-3 rounded-DEFAULT transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Ver no Google Maps
+        </a>
+      </div>
+
+      <!-- Embedded Map -->
+      <div class="rounded-DEFAULT overflow-hidden border border-primary/15 shadow-xl" style="height:300px;">
+        <iframe
+          title="Localização do escritório — Dra. Júnia Silveira"
+          width="100%"
+          height="300"
+          style="border:0;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=R.+Prof.+Abeylard+279+Sala+9+Centro+Sete+Lagoas+MG+Brasil&output=embed&z=16">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Right: contact form -->
+    <div class="fade-in-up">
+      <div class="bg-surface-container rounded-lg p-8 md:p-10 border border-primary/10 shadow-2xl">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Envie sua Mensagem</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-8">Retornaremos em até 24 horas úteis.</p>
+        <form id="contact-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+          <div>
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2" for="cf-name">Nome Completo</label>
+            <input class="contact-input" type="text" id="cf-name" name="name" placeholder="Seu nome" required/>
+          </div>
+          <div>
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2" for="cf-email">E-mail</label>
+            <input class="contact-input" type="email" id="cf-email" name="email" placeholder="seu@email.com" required/>
+          </div>
+          <div>
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2" for="cf-phone">WhatsApp / Telefone</label>
+            <input class="contact-input" type="tel" id="cf-phone" name="phone" placeholder="+55 31 99999-9999"/>
+          </div>
+          <div>
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2" for="cf-area">Área de Interesse</label>
+            <select class="contact-input" id="cf-area" name="area">
+              <option value="" disabled selected>Selecione a área</option>
+              <option value="consumidor">Direito do Consumidor</option>
+              <option value="bancario">Direito Bancário</option>
+              <option value="digital">Direito Digital</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest block mb-2" for="cf-msg">Mensagem</label>
+            <textarea class="contact-input" id="cf-msg" name="message" rows="4" placeholder="Descreva brevemente sua situação…" required></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-DEFAULT hover:bg-primary-fixed transition-colors duration-300">
+            Enviar Mensagem
+          </button>
+          <p id="form-feedback" class="text-center font-body-md text-body-md text-primary hidden">
+            ✓ Mensagem enviada! Retornaremos em breve.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="bg-surface-container-lowest w-full py-12 border-t border-outline-variant/20">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+      <!-- Brand -->
+      <div class="flex flex-col items-center md:items-start gap-4">
+        <img alt="Dra. Júnia Silveira Logo"
+             class="h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCflXVZcHXUfEjVjnwqQP6qmPLbjrtSSyu2rrdTx0bIgislkj92Aq9kSA3lstBa2EbdT8afYHVBnswWqavea0aKkgKA8vAM7jukCB2OFrPjZxMO2HYivExM4MrIPcfv0Rlci_uXOKJ1XjZlwTREDqJqAtHxu-SDOtgPZXtWL67qgJFqHtFAj4g2aAGFtAT-lKhaHkUDoo7V2_5nuZqru0w7NthJHHEg_OSjOjJ19C3lw-E6WaFJd2gHZwzEpSZtMVjGCObeNeLdNpmi"/>
+        <p class="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
+          © 2025 Dra. Júnia Silveira. Advocacia e Consultoria Jurídica.
+        </p>
+      </div>
+
+      <!-- Social + Links -->
+      <div class="flex flex-col items-center md:items-end gap-6">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/adv_juniasilveira/" target="_blank" rel="noopener"
+           class="instagram-icon" aria-label="Instagram da Dra. Júnia Silveira">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <!-- Nav links -->
+        <div class="flex gap-6 flex-wrap justify-center">
+          <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Termos de Uso</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacidade</a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Compliance</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-10 pt-6 border-t border-outline-variant/10 text-center">
+      <p class="font-label-caps text-label-caps text-on-surface-variant/50 uppercase tracking-widest">
+        OAB/MG — Advocacia com Excelência, Sigilo e Comprometimento
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════
+     WHATSAPP FLOATING BUTTON
+════════════════════════════════════════════════ -->
+<a id="whatsapp-btn"
+   href="https://wa.me/5531997661109?text=Olá%2C%20gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Júnia%20Silveira."
+   target="_blank"
+   rel="noopener"
+   aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.527 5.847L0 24l6.332-1.501A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.81 9.81 0 0 1-5.012-1.377l-.36-.214-3.722.882.936-3.61-.234-.37A9.792 9.792 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- ════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════ -->
+<script>
+  // ── Fade-in-up observer ──
+  document.addEventListener("DOMContentLoaded", function () {
+    const obs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { root: null, threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => obs.observe(el));
+
+    // ── Mobile nav toggle ──
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+  });
+
+  // ── Contact form mock submit ──
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const fb = document.getElementById('form-feedback');
+    fb.classList.remove('hidden');
+    e.target.reset();
+    setTimeout(() => fb.classList.add('hidden'), 6000);
+  }
+</script>
+</body>
+</html>
