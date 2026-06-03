@@ -113,6 +113,41 @@
     100% { transform: translateY(0px); }
   }
 
+  /* ── Subtle Text Shine/Reflex ── */
+  .text-shine-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  .text-shine-glow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.28) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shine-glow 6s infinite ease-in-out;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  @keyframes shine-glow {
+    0% {
+      left: -150%;
+    }
+    35% {
+      left: 150%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
+
   /* ── Ticker / Marquee ── */
   .ticker-track {
     display: flex;
@@ -262,7 +297,7 @@
 
       <!-- Content -->
       <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-8 fade-in-up">
-        <h1 class="font-headline-display text-headline-lg-mobile md:text-headline-display text-on-surface tracking-tighter text-balance">
+        <h1 class="font-headline-display text-headline-lg-mobile md:text-headline-display text-on-surface tracking-tighter text-balance text-shine-glow pb-2">
           Advocacia de Excelência para o Mundo <span class="italic text-primary">Digital</span> e Bancário
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l border-primary/30 pl-6">
