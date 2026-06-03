@@ -223,10 +223,10 @@
 
   /* ── Contact section ── */
   .contact-input {
-    background: #201f23;
-    border: 1px solid rgba(227,190,189,0.2);
+    background: #ffffff !important;
+    border: 1px solid rgba(20, 19, 23, 0.2) !important;
     border-radius: 4px;
-    color: #e6e1e7;
+    color: #000000 !important;
     padding: 14px 16px;
     width: 100%;
     font-family: Manrope, sans-serif;
@@ -234,8 +234,11 @@
     outline: none;
     transition: border-color 0.3s;
   }
-  .contact-input:focus { border-color: #e3bebd; }
-  .contact-input::placeholder { color: #9c8d8d; }
+  .contact-input:focus { 
+    border-color: #e3bebd !important; 
+    box-shadow: 0 0 0 2px rgba(227, 190, 189, 0.2) !important;
+  }
+  .contact-input::placeholder { color: #7c7c7c !important; }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary/30 selection:text-primary">
