@@ -571,7 +571,7 @@
             Enviar Mensagem
           </button>
           <p id="form-feedback" class="text-center font-body-md text-body-md text-primary hidden">
-            ✓ Mensagem enviada! Retornaremos em breve.
+            ✓ Redirecionando para o WhatsApp da Dra. Júnia...
           </p>
         </form>
       </div>
@@ -665,11 +665,39 @@
     }
   });
 
-  // ── Contact form mock submit ──
+  // ── Contact form submit to WhatsApp ──
   function handleFormSubmit(e) {
     e.preventDefault();
+    
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const phone = document.getElementById('cf-phone').value || 'Não informado';
+    
+    const areaSelect = document.getElementById('cf-area');
+    const areaValue = areaSelect.value;
+    const area = areaValue ? areaSelect.options[areaSelect.selectedIndex].text : 'Não selecionada';
+    
+    const msg = document.getElementById('cf-msg').value;
+    
+    // Format the message template
+    const formattedText = `Olá, Dra. Júnia. Gostaria de iniciar uma consulta. Segue o resumo das minhas informações:\n\n` +
+                          `*Nome Completo:* ${name}\n` +
+                          `*E-mail:* ${email}\n` +
+                          `*WhatsApp/Telefone:* ${phone}\n` +
+                          `*Área de Interesse:* ${area}\n\n` +
+                          `*Mensagem:* \n${msg}`;
+
+    const encodedText = encodeURIComponent(formattedText);
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=5531997661109&text=${encodedText}`;
+    
+    // Show feedback message
     const fb = document.getElementById('form-feedback');
     fb.classList.remove('hidden');
+    
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset the form
     e.target.reset();
     setTimeout(() => fb.classList.add('hidden'), 6000);
   }
